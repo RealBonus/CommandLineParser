@@ -1,0 +1,18 @@
+[
+    {
+        "login": "admin",
+        "pass": "admin",
+    },
+    {
+        "login": "manager",
+        "pass": "manager",
+    },
+    {
+        "login": "guest",
+        "pass": "12345",
+    },
+    {
+        "login": "otherGuest",
+        "pass": "23456",
+    }
+]

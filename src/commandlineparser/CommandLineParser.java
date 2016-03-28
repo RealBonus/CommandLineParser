@@ -11,7 +11,7 @@ public class CommandLineParser {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        AccountManager accountManager = new AccountManager();
+        AccountManager accountManager = new AccountManager("users.json");
         StorageManager storageManager = new StorageManager("products.json");
 
         UserCommandHandler userCommandHandler = new UserCommandHandler();
