@@ -68,7 +68,7 @@ public class ProductCommandHandler implements CommandHandler {
         }
 
         User user = accountManager.getLoggedUser();
-        if (!user.getLogin().equals("admin")) {
+        if (user == null || !user.getLogin().equals("admin")) {
             return new CommandResult(false, "Only admin and managers can work with products.", true, null);
         }
 
@@ -96,6 +96,8 @@ public class ProductCommandHandler implements CommandHandler {
                     if (name == null || name.isEmpty())
                         return ErrorResult("find", "Specify product name.", true, null);
                     activeProduct = getStorageManager().FindProduct(name);
+                    if (activeProduct == null)
+                        return ErrorResult("find", "Can't find product named ".concat(name), true, null);
                     break;
 
                 case "setName":
@@ -162,7 +164,7 @@ public class ProductCommandHandler implements CommandHandler {
             return new CommandResult(false, "Problem saving storage.", true, e);
         }
 
-        return new CommandResult(true, sb.toString(), false, null);
+        return new CommandResult(true, sb.toString(), true, null);
     }
 
     private CommandResult ErrorResult(String command, String message, boolean required, Exception e) {
