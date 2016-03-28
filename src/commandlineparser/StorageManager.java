@@ -31,10 +31,10 @@ public class StorageManager {
         ReadJsonStorage(file);
     }
 
-    private void ReadJsonStorage(String file) {
+    private void ReadJsonStorage(String url) {
         JSONParser parser = new JSONParser();
 
-        try (FileReader reader = new FileReader(file)) {
+        try (FileReader reader = new FileReader(url)) {
             JSONArray rawProducts = (JSONArray) parser.parse(reader);
 
             for (Object product : rawProducts) {
