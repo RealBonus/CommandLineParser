@@ -2,6 +2,9 @@ package commandlineparser.parser;
 
 import java.util.Objects;
 
+/**
+ * Argument with parameter. Simple "String, String" container.
+ */
 public class ArgumentPair {
     private final String argument;
     private final String parameter;

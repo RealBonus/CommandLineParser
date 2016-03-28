@@ -2,11 +2,20 @@ package commandlineparser.parser;
 
 import java.util.*;
 
+/**
+ * Command line parser.
+ * @author Anokhov Pavel
+ */
 public class ComLineParser {
     private static final String HELP_COMMAND_KEY = "help";
     private static final String PASS_OUTPUT_COMMAND = ">>";
     private static final String PASSED_OUTPUT_ARGUMENT_NAME = "output";
 
+    /**
+     * Passed output argument name.
+     * Using ">>" command, you can pass previous command output to next command (usually print).
+     * @return Argument name.
+     */
     public static String getPassedOutputArgumentName() {
         return PASSED_OUTPUT_ARGUMENT_NAME;
     }
@@ -15,6 +24,10 @@ public class ComLineParser {
     private String argumentDelimiter;
     private String title;
 
+    /**
+     * Sets Application title. Used as header in help command.
+     * @param title 
+     */
     public void setTitle(String title) {
         this.title = title;
     }
