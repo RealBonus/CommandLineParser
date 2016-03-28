@@ -167,8 +167,8 @@ public class ComLineParser {
             if (bucket.handler == passCommand) {
                 passFlag = true;
                 continue;
-            } else if (!passFlag && prevResult != null && prevResult.requireOutput) {
-                System.out.println(prevResult.output);
+            } else if (!passFlag && prevResult != null && prevResult.isRequireOutput()) {
+                System.out.println(prevResult.getOutput());
                 prevResult = null;
             }
 
@@ -181,7 +181,7 @@ public class ComLineParser {
                 if (bucket.arguments == null) {
                     bucket.arguments = new ArgumentList(1);
                 }
-                bucket.arguments.add(new ArgumentPair(PASSED_OUTPUT_ARGUMENT_NAME, prevResult != null ? prevResult.output : null));
+                bucket.arguments.add(new ArgumentPair(PASSED_OUTPUT_ARGUMENT_NAME, prevResult != null ? prevResult.getOutput() : null));
                 passFlag = false;
             }
 
@@ -195,8 +195,8 @@ public class ComLineParser {
             prevResult = result;
         }
 
-        if (prevResult != null && prevResult.requireOutput) {
-            System.out.println(prevResult.output);
+        if (prevResult != null && prevResult.isRequireOutput()) {
+            System.out.println(prevResult.getOutput());
         }
     }
 
