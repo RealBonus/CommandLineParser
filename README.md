@@ -49,7 +49,7 @@ Login as admin, create expensive "Red bike", put report in file, and stop progra
 ```
 list -priceFrom 2000 -priceTo 1000 >> print -display -file ~/products2k-10k.txt list >> print -file ~/allProducts.txt
 ```
-Display products with average price, save them into txt, and then save all products to different txt.
+Display products with average price, save them into txt, and then save all products to another txt.
 
 ```
 help -help
