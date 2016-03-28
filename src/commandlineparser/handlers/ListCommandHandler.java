@@ -3,11 +3,16 @@ package commandlineparser.handlers;
 import commandlineparser.Product;
 import commandlineparser.StorageManager;
 import commandlineparser.parser.*;
+import java.util.Arrays;
 
 import java.util.List;
 
 public class ListCommandHandler implements CommandHandler {
     private StorageManager storageManager;
+    private final List<CommandArgument> arguments = Arrays.asList(
+            new CommandArgument("priceFrom", "Lowest price.", true),
+            new CommandArgument("priceTo", "Highest price.", true)
+    );
 
     public StorageManager getStorageManager() {
         return storageManager;
@@ -16,12 +21,6 @@ public class ListCommandHandler implements CommandHandler {
     public void setStorageManager(StorageManager storageManager) {
         this.storageManager = storageManager;
     }
-
-
-    private final CommandArgument[] arguments = new CommandArgument[] {
-            new CommandArgument("priceFrom", "Lowest price.", true),
-            new CommandArgument("priceTo", "Highest price.", true)
-    };
 
     @Override
     public String getKey() {
@@ -39,7 +38,7 @@ public class ListCommandHandler implements CommandHandler {
     }
 
     @Override
-    public CommandArgument[] getArguments() {
+    public List<CommandArgument> getArguments() {
         return arguments;
     }
 

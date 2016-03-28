@@ -5,18 +5,20 @@ import commandlineparser.Product;
 import commandlineparser.StorageManager;
 import commandlineparser.User;
 import commandlineparser.parser.*;
+import java.util.Arrays;
+import java.util.List;
 
 public class ProductCommandHandler implements CommandHandler {
     private AccountManager accountManager;
     private StorageManager storageManager;
-    private final CommandArgument[] arguments = new CommandArgument[] {
-            new CommandArgument("create", "Create product with name and set it as active", true),
-            new CommandArgument("find", "Search product by name and set it as active.", true),
-            new CommandArgument("remove", "Remove active product.", false),
-            new CommandArgument("setName", "Rename active product.", true),
-            new CommandArgument("setPrice", "Set active product price.", true),
-            new CommandArgument("setAmount", "Set active product amount in storage.", true),
-    };
+    private final List<CommandArgument> arguments = Arrays.asList(
+        new CommandArgument("create", "Create product with name and set it as active", true),
+        new CommandArgument("find", "Search product by name and set it as active.", true),
+        new CommandArgument("remove", "Remove active product.", false),
+        new CommandArgument("setName", "Rename active product.", true),
+        new CommandArgument("setPrice", "Set active product price.", true),
+        new CommandArgument("setAmount", "Set active product amount in storage.", true)
+    );
 
     public AccountManager getAccountManager() {
         return accountManager;
@@ -53,7 +55,7 @@ public class ProductCommandHandler implements CommandHandler {
     }
 
     @Override
-    public CommandArgument[] getArguments() {
+    public List<CommandArgument> getArguments() {
         return arguments;
     }
 

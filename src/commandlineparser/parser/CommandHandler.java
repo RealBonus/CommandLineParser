@@ -1,10 +1,12 @@
 package commandlineparser.parser;
 
+import java.util.List;
+
 public interface CommandHandler {
     String getKey();
     String getDescription();
     String getDetailedDescription();
-    CommandArgument[] getArguments();
+    List<CommandArgument> getArguments();
 
     CommandResult ExecuteCommand(ArgumentList args);
 }

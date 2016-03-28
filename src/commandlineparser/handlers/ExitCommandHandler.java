@@ -1,6 +1,7 @@
 package commandlineparser.handlers;
 
 import commandlineparser.parser.*;
+import java.util.List;
 
 public class ExitCommandHandler implements CommandHandler {
     private boolean exitRequested;
@@ -29,7 +30,7 @@ public class ExitCommandHandler implements CommandHandler {
     }
 
     @Override
-    public CommandArgument[] getArguments() {
+    public List<CommandArgument> getArguments() {
         return null;
     }
 

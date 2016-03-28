@@ -5,12 +5,14 @@ import commandlineparser.parser.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.Arrays;
+import java.util.List;
 
 public class PrintCommandHandler implements CommandHandler {
-    private final CommandArgument[] arguments = new CommandArgument[] {
+    private final List<CommandArgument> arguments = Arrays.asList(
         new CommandArgument("file", "File path to save output.", true),
         new CommandArgument("display", "Print to display flag.", false)
-    };
+    );
 
     @Override
     public String getKey() {
@@ -28,7 +30,7 @@ public class PrintCommandHandler implements CommandHandler {
     }
 
     @Override
-    public CommandArgument[] getArguments() {
+    public List<CommandArgument> getArguments() {
         return arguments;
     }
 

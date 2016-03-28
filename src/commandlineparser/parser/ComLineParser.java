@@ -295,7 +295,7 @@ public class ComLineParser {
             sb.append('\n').append(detailed);
         }
         
-        CommandArgument[] arguments = handler.getArguments();
+        List<CommandArgument> arguments = handler.getArguments();
         if (arguments != null) {
             sb.append("\n\nArguments:");
 
@@ -354,7 +354,9 @@ public class ComLineParser {
         }
 
         @Override
-        public CommandArgument[] getArguments() { return null; }
+        public List<CommandArgument> getArguments() {
+            return null;
+        }
 
         @Override
         public CommandResult ExecuteCommand(ArgumentList args)
@@ -381,7 +383,7 @@ public class ComLineParser {
         }
         
         @Override
-        public CommandArgument[] getArguments() {
+        public List<CommandArgument> getArguments() {
             return null;
         }
 

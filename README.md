@@ -8,7 +8,7 @@ Demo project contains small user-login logic and small json 'database' with 'pro
 command -argument parameter -argument 'complex parameter' nextCommand -argument >> thirdCommand
 ```
 
-Where 'command' - a command from list bellow, '-argument parameter' - list of arguments with (o without) parameters, passed to command.
+Where 'command' - a command from list bellow, '-argument parameter' - list of arguments with (or without) parameters, passed to command.
 
 All commands support '-help' argument, which will display detailed command description and list of supported arguments.
 
@@ -50,3 +50,8 @@ Login as admin, create expensive "Red bike", put report in file, and stop progra
 list -priceFrom 2000 -priceTo 1000 >> print -display -file ~/products2k-10k.txt list >> print -file ~/allProducts.txt
 ```
 Display products with average price, save them into txt, and then save all products to different txt.
+
+```
+help -help
+```
+Display help for help.

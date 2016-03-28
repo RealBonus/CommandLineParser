@@ -3,9 +3,16 @@ package commandlineparser.handlers;
 import commandlineparser.AccountManager;
 import commandlineparser.User;
 import commandlineparser.parser.*;
+import java.util.Arrays;
+import java.util.List;
 
 public class UserCommandHandler implements CommandHandler {
     private AccountManager accountManager;
+    private final List<CommandArgument> arguments = Arrays.asList(
+        new CommandArgument("login", "User login.", true),
+        new CommandArgument("pass", "User password.", true),
+        new CommandArgument("logout", "Logout from current user.", false)
+    );
 
     public AccountManager getAccountManager() {
         return accountManager;
@@ -14,12 +21,6 @@ public class UserCommandHandler implements CommandHandler {
     public void setAccountManager(AccountManager accountManager) {
         this.accountManager = accountManager;
     }
-    
-    private final CommandArgument[] arguments = new CommandArgument[] {
-            new CommandArgument("login", "User login.", true),
-            new CommandArgument("pass", "User password.", true),
-            new CommandArgument("logout", "Logout from current user.", false)
-    };
 
     @Override
     public String getKey() {
@@ -38,7 +39,7 @@ public class UserCommandHandler implements CommandHandler {
     }
 
     @Override
-    public CommandArgument[] getArguments() {
+    public List<CommandArgument> getArguments() {
         return arguments;
     }
 
