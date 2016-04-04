@@ -170,7 +170,7 @@ public class ProductCommandHandler implements CommandHandler {
     }
 
     private CommandResult ErrorResult(String command, String message, boolean required, Exception e) {
-        message = command != null ? command.concat(": ").concat(message) : message;
+        message = String.format("%s: %s", command, message);
         return new CommandResult(false, message, required, e);
     }
 }

@@ -66,8 +66,7 @@ public class PrintCommandHandler implements CommandHandler {
                         exception = e;
                     }
                     output = exception == null ? "Message successfully written to ".concat(path)
-                            : "Attempt to write a message to '".concat(path)
-                            .concat("' threw an exception: ").concat(exception.toString());
+                            : String.format("Attempt to write a message to '%s' threw an exception: %s", path, exception);
                     break;
 
                 case "display":

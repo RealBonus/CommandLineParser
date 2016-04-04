@@ -79,10 +79,8 @@ public class ListCommandHandler implements CommandHandler {
 
             if (highestPrice > 0 && product.getPrice() > highestPrice)
                 continue;
-
-            String name = product.getName();
-            sb.append(name != null ? name : "(unnamed)").append(":\t")
-                    .append(product.getPrice()).append("₽\n");
+            
+            sb.append(String.format("%s:\t%.2f₽%n", product.getName(), product.getPrice()));
         }
 
         return new CommandResult(true, sb.toString(), true, null);

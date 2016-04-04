@@ -221,47 +221,42 @@ public class ComLineParser {
 
     //region Report messages
     private void ReportArgumentWithoutCommand(String argument) {
-        String message = "You must specify command for argument ".concat(argumentDelimiter).concat(argument);
+        String message = String.format("You must specify command for argument %s%s", argumentDelimiter, argument);
         ReportError(message);
     }
 
     private void ReportUnknownCommand(String command) {
-        String message = "Unknown command key: "
-                .concat(commandDelimiter).concat(command)
-                .concat(", use ")
-                .concat(commandDelimiter).concat(HELP_COMMAND_KEY)
-                .concat(" for command list.");
+        String message = String.format("Unknown command key: %s%s, use %s%s for command llist",
+                commandDelimiter, command,
+                commandDelimiter, HELP_COMMAND_KEY);
         ReportError(message);
     }
 
     private void ReportUnknownArg(CommandHandler command, String argument) {
-        String message = "Command "
-                .concat(commandDelimiter).concat(command.getKey())
-                .concat(" doesn't has argument '")
-                .concat(argumentDelimiter).concat(argument)
-                .concat("', use '")
-                .concat(commandDelimiter).concat(command.getKey())
-                .concat(" ")
-                .concat(argumentDelimiter).concat(HELP_COMMAND_KEY)
-                .concat("' for argument list.");
+        String message = String.format("Command %s%s doesn't has argument '%s%s',"
+                + " use '%s%s %s%s' for argument list.",
+                commandDelimiter, command.getKey(),
+                argumentDelimiter, argument,
+                commandDelimiter, command.getKey(),
+                argumentDelimiter, HELP_COMMAND_KEY);
         ReportError(message);
     }
 
     private void ReportLackOfParameter(String argument) {
-        String message ="Parameter needed for argument "
-                .concat(argumentDelimiter).concat(argument);
+        String message = String.format("Parameter needed for argument %s%s", argumentDelimiter, argument);
         ReportError(message);
     }
 
     private void ReportUnsuccessfulCommand(String key, String output, Exception e) {
-        StringBuilder message = new StringBuilder("Error with ");
-        message.append(key);
+        StringBuilder message = new StringBuilder(String.format("Error with %s", key));
 
         if (e != null) {
-            message.append(", exception was thrown: ").append(e.getMessage())
-                    .append("\nTo get full output, use ").append(PASS_OUTPUT_COMMAND).append(" command.");
+            message.append(String.format(", exception was thrown: %s%n"
+                    + "To get full output, use %s command.",
+                    e.getMessage(), PASS_OUTPUT_COMMAND));
         } else if (output != null) {
-            message.append(": ").append(output);
+            message.append(": ");
+            message.append(output);
         }
 
         ReportError(message.toString());

@@ -47,7 +47,7 @@ public class StorageManager {
                 products.add(p);
             }
         } catch (Exception e) {
-            System.out.println("Storage manager failed with exception: " + e.getMessage());
+            System.out.printf("Storage manager failed with exception: %s\n" + e.getMessage());
         }
     }
 
